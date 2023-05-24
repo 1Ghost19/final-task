@@ -37,3 +37,4 @@ jobs:
       
       - name: Test
         run: docker run --rm ${{ secrets.DOCKERHUB_USERNAME }}/sampleapp:${{ env.TAG }} python manage.py test
+        
