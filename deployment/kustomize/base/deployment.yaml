@@ -15,6 +15,7 @@ spec:
       initContainers:
         - name: gleb-sampleapp-migrate
           image: ghost19/sampleapp:main
+          imagePullPolicy: Always
           ports:
             - containerPort: 8000
           envFrom:
@@ -27,6 +28,7 @@ spec:
       containers:
         - name: gleb-sampleapp
           image: ghost19/sampleapp:main
+          imagePullPolicy: Always
           ports:
             - containerPort: 8000
           args: 
