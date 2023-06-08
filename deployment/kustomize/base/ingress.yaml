@@ -1,22 +1,25 @@
 apiVersion: networking.k8s.io/v1
+   
 kind: Ingress
+  
 metadata:
-  name: app-ingress
+  name: gleb-sampleapp-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
-spec:
-  rules:
-    - host: sivtsov.dacdevops.ru
+spec:   
+  rules:   
+    - host: gleb.dacdevops.ru
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: app-service
+                name: gleb-sampleapp-service
                 port:
-                  name: web
+                  name: http
+
   tls:
     - hosts:
-      - sivtsov.dacdevops.ru
-      secretName: sivtsov-cert
+      - gleb.dacdevops.ru
+      secretName: gleb-sampleapp-cert

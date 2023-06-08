@@ -1,17 +1,13 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-images:
-  - name: webimage
-    newName: 1Ghost19/sampleapp
-    newTag: v1.0.3
-
 resources:
-  - "deployment-db.yaml"
-  - "deployment-server.yaml"
-  - "namespace.yaml"
-  - "service.yaml"
-  - "configmap.yaml"
-  - "secret.yaml"
+  - deployment.yaml
+  - service.yaml
+  - postgres-deployment.yaml
+  - postgres-service.yaml
+  - secret.yaml
+  - ingress.yaml
 
-namespace: sivtsov
+images:
+  - name: ghost19/sampleapp
