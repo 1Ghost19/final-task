@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: gleb-sampleapp-certificate
+spec:
+  dnsNames:
+  - 'gleb.dacdevops.ru'
+  issuerRef:
+    kind: ClusterIssuer
+    name: yc-clusterissuer
+  secretName: gleb-sampleapp-cert
+  
