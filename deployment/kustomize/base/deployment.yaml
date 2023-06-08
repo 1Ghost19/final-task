@@ -14,7 +14,7 @@ spec:
     spec:
       initContainers:
         - name: gleb-sampleapp-migrate
-          image: ghost19/sampleapp:main
+          image: ghost19/sampleapp:latest
           ports:
             - containerPort: 8000
           envFrom:
@@ -26,7 +26,7 @@ spec:
             - migrate
       containers:
         - name: gleb-sampleapp
-          image: ghost19/sampleapp:main
+          image: ghost19/sampleapp:latest
           ports:
             - containerPort: 8000
           args: 
@@ -37,4 +37,3 @@ spec:
           envFrom:
             - secretRef:
                 name: gleb-sampleapp-postgres-secret
-                
