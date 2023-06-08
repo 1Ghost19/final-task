@@ -9,3 +9,4 @@ spec:
     kind: ClusterIssuer
     name: yc-clusterissuer
   secretName: gleb-sampleapp-cert
+  

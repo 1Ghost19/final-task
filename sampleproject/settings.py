@@ -75,10 +75,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "sampleproject.wsgi.application"
 
-
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
 MAX_CONN_AGE = 600
 
 POSTGRES_DB = os.environ.get("POSTGRES_DB") #database name
