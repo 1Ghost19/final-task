@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TAG: "${{ inputs.tag != '' && inputs.tag || github.ref_name }}"
-      PUSH: "${{ (github.ref_name == 'latest') && 'true' ||
+      PUSH: "${{ (github.ref_name == 'main') && 'true' ||
         startsWith(github.ref, 'refs/tags/v') && 'true' || 'false'}}"
     steps:
       - name: Check out Project
@@ -33,8 +33,8 @@ jobs:
           context: .
           file: ./Dockerfile
           push: ${{ env.PUSH }}
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/sampleapp:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/sampleapp:${{ env.TAG }}
       
       - name: Test
-        run: docker run --rm ${{ secrets.DOCKERHUB_USERNAME }}/sampleapp:latest python manage.py test
+        run: docker run --rm ${{ secrets.DOCKERHUB_USERNAME }}/sampleapp:${{ env.TAG }} python manage.py test
         
