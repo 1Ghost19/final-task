@@ -6,7 +6,7 @@ tasks:
       - docker build -t sampleapp:$(date +%Y%m%d%H%M%S)  .
   docker-run:
     cmds:
-      - docker run -it --rm sampleapp:latest
+      - docker run --pull=always -it --rm sampleapp:latest
   up:
     cmds:
       - docker compose up -d
